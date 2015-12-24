@@ -12,6 +12,7 @@
 		510BED0C1C1A8F630048B350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510BED0A1C1A8F630048B350 /* Main.storyboard */; };
 		510BED0E1C1A8F630048B350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510BED0D1C1A8F630048B350 /* Assets.xcassets */; };
 		510BED111C1A8F630048B350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510BED0F1C1A8F630048B350 /* LaunchScreen.storyboard */; };
+		515C28D41C1BED2B00A32DB7 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C28D31C1BED2B00A32DB7 /* ResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		510BED0D1C1A8F630048B350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		510BED101C1A8F630048B350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		510BED121C1A8F630048B350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		515C28D31C1BED2B00A32DB7 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				510BED061C1A8F630048B350 /* AppDelegate.swift */,
 				510BED081C1A8F630048B350 /* ViewController.swift */,
 				510BED0A1C1A8F630048B350 /* Main.storyboard */,
+				515C28D31C1BED2B00A32DB7 /* ResultController.swift */,
 				510BED0D1C1A8F630048B350 /* Assets.xcassets */,
 				510BED0F1C1A8F630048B350 /* LaunchScreen.storyboard */,
 				510BED121C1A8F630048B350 /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				510BED091C1A8F630048B350 /* ViewController.swift in Sources */,
 				510BED071C1A8F630048B350 /* AppDelegate.swift in Sources */,
+				515C28D41C1BED2B00A32DB7 /* ResultController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +290,7 @@
 				510BED171C1A8F630048B350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

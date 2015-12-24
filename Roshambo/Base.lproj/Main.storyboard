@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pick Your Card-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yourCardViewController" title="Pick Your Card" id="BYZ-38-t0r" customClass="ViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,97 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCE-Ra-Qo2" userLabel="Rock">
+                                <rect key="frame" x="198" y="168" width="37" height="32"/>
+                                <state key="normal" image="Rock"/>
+                                <connections>
+                                    <action selector="pickRock" destination="BYZ-38-t0r" eventType="touchUpInside" id="Buf-2K-qlI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPX-Y8-wRs" userLabel="Scissors">
+                                <rect key="frame" x="366" y="168" width="37" height="32"/>
+                                <state key="normal" image="Scissors"/>
+                                <connections>
+                                    <segue destination="9Uq-YD-WLE" kind="presentation" identifier="theScissorrsSegue" id="13R-eC-sHC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjN-Fk-Ch7">
+                                <rect key="frame" x="264" y="271" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7X-vp-cN7" userLabel="Paper">
+                                <rect key="frame" x="282" y="101" width="37" height="32"/>
+                                <state key="normal" image="Paper"/>
+                                <connections>
+                                    <action selector="pickPaper" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfu-9w-7Cl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="labelResult" destination="LjN-Fk-Ch7" id="GWR-lg-tZL"/>
+                        <outlet property="paperButton" destination="X7X-vp-cN7" id="0Fh-IH-WYo"/>
+                        <outlet property="rockButton" destination="kCE-Ra-Qo2" id="G32-cj-esu"/>
+                        <outlet property="scissorsButton" destination="sPX-Y8-wRs" id="1DP-Bh-n3g"/>
+                        <segue destination="9Uq-YD-WLE" kind="presentation" identifier="pickPaperSegue" id="Q6r-Fd-f47"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="286"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="oRI-wE-mcy">
+            <objects>
+                <viewController storyboardIdentifier="resultViewController" title="Result" id="9Uq-YD-WLE" customClass="ResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WGn-nt-f48"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZZp-40-IBs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rlB-Q5-uA5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You lose computer with Scissors vs Rock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmX-uS-c0y">
+                                <rect key="frame" x="144" y="289" width="312" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hza-ng-7Y4">
+                                <rect key="frame" x="265" y="359" width="71" height="30"/>
+                                <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="exit" destination="9Uq-YD-WLE" eventType="touchUpInside" id="rPN-SN-uTq"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ItsATie" translatesAutoresizingMaskIntoConstraints="NO" id="rIR-w8-Ulx">
+                                <rect key="frame" x="255" y="128" width="142" height="100"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="rIR-w8-Ulx" id="DAV-YU-M1g"/>
+                        <outlet property="resultLabel" destination="OmX-uS-c0y" id="7ew-Tb-SWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnH-aa-vtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1018" y="286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ItsATie" width="91" height="100"/>
+        <image name="Paper" width="37" height="32"/>
+        <image name="Rock" width="37" height="32"/>
+        <image name="Scissors" width="37" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Q6r-Fd-f47"/>
+    </inferredMetricsTieBreakers>
 </document>
