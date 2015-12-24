@@ -13,6 +13,8 @@
 		510BED0E1C1A8F630048B350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510BED0D1C1A8F630048B350 /* Assets.xcassets */; };
 		510BED111C1A8F630048B350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510BED0F1C1A8F630048B350 /* LaunchScreen.storyboard */; };
 		515C28D41C1BED2B00A32DB7 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C28D31C1BED2B00A32DB7 /* ResultController.swift */; };
+		517AF1B61C2BBE82008928B2 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517AF1B51C2BBE82008928B2 /* HistoryViewController.swift */; };
+		517AF1B81C2BC6F6008928B2 /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517AF1B71C2BC6F6008928B2 /* RPS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		510BED101C1A8F630048B350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		510BED121C1A8F630048B350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		515C28D31C1BED2B00A32DB7 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		517AF1B51C2BBE82008928B2 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		517AF1B71C2BC6F6008928B2 /* RPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				510BED0D1C1A8F630048B350 /* Assets.xcassets */,
 				510BED0F1C1A8F630048B350 /* LaunchScreen.storyboard */,
 				510BED121C1A8F630048B350 /* Info.plist */,
+				517AF1B51C2BBE82008928B2 /* HistoryViewController.swift */,
+				517AF1B71C2BC6F6008928B2 /* RPS.swift */,
 			);
 			path = Roshambo;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				510BED091C1A8F630048B350 /* ViewController.swift in Sources */,
 				510BED071C1A8F630048B350 /* AppDelegate.swift in Sources */,
 				515C28D41C1BED2B00A32DB7 /* ResultController.swift in Sources */,
+				517AF1B61C2BBE82008928B2 /* HistoryViewController.swift in Sources */,
+				517AF1B81C2BC6F6008928B2 /* RPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

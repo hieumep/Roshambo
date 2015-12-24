@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    enum status {
-        case win, lose, tie
+    enum status:String{
+        case win = "win"
+        case lose = "lose"
+        case tie = "tie"
     }
 
     enum cards:String{
@@ -45,24 +47,25 @@ class ViewController: UIViewController {
     
     struct match{
         let p1 : cards
-        let p2 : cards
+        let p2 : cards 
+        
         
         init (p1:cards, p2:cards) {
             self.p1 = p1
             self.p2 = p2
         }
         
-        func compare() -> (result : String , win : status){
+        func compare() -> RPS{
             switch (p1,p2) {
             case (.Rock,.Scissors), (.Paper,.Rock), (.Scissors,.Paper) :
                 let resultStr = "You win computer with \(p1.rawValue) vs \(p2.rawValue)"
-                return (resultStr,.win)
+                return RPS(resultStr: resultStr,statu: status.win.rawValue,imageName: p1.nameImage(.win))
             case (.Rock,.Rock), (.Paper,.Paper), (.Scissors, .Scissors) :
                 let resultStr =  "You tie with computer. \(p1.rawValue) vs \(p2.rawValue)"
-                return (resultStr,.tie)
+                return RPS(resultStr: resultStr,statu: status.tie.rawValue, imageName: p1.nameImage(.tie))
             default :
                 let resultStr = "You lose computer with \(p1.rawValue) vs \(p2.rawValue)"
-                return (resultStr,.lose)
+                return RPS(resultStr: resultStr,statu: status.lose.rawValue, imageName: p1.nameImage(.lose))
 
             }
         }
@@ -77,8 +80,8 @@ class ViewController: UIViewController {
         let p2 = cards()
         let theMatch = match(p1: p1,p2 : p2)
         let theResult = theMatch.compare()
-        let nameImage = p1.nameImage(theResult.win)
-        return (theResult.result,nameImage)
+       // let nameImage = p1.nameImage(theResult.win)
+        return (theResult.resultStr,theResult.imageName)
     }
     
     @IBAction func pickRock(){
