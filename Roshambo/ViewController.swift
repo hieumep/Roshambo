@@ -68,45 +68,55 @@ class ViewController: UIViewController {
                 return RPS(resultStr: resultStr,statu: status.lose.rawValue, imageName: p1.nameImage(.lose))
 
             }
+            
         }
     }
+    
+    var arrayRPS = [RPS]()
+    
     @IBOutlet weak var scissorsButton: UIButton!
     @IBOutlet weak var rockButton: UIButton!
     @IBOutlet weak var paperButton: UIButton!
     
     @IBOutlet weak var labelResult: UILabel!
     
-    func play(p1:cards) -> (result : String, nameImage : String){
+    func play(p1:cards) -> RPS{
         let p2 = cards()
         let theMatch = match(p1: p1,p2 : p2)
         let theResult = theMatch.compare()
-       // let nameImage = p1.nameImage(theResult.win)
-        return (theResult.resultStr,theResult.imageName)
+        arrayRPS.append(theResult)
+        return theResult
     }
     
     @IBAction func pickRock(){
         let theResult = play(.Rock)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("resultViewController") as! ResultViewController
-        resultVC.result = theResult.result
-        resultVC.nameImage = theResult.nameImage
-        self.presentViewController(resultVC, animated: true, completion: nil)
+        resultVC.rPS = theResult
+        navigationController?.pushViewController(resultVC, animated: true)
     }
+    
     @IBAction func pickPaper(){
         performSegueWithIdentifier("pickPaperSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var theResult:(String,String)
-        let resultVC = segue.destinationViewController as! ResultViewController
-        if segue.identifier == "pickPaperSegue"{
-            theResult = play(.Paper)
-        }else
-        {
-            theResult = play(.Scissors)
+        
+        switch segue.identifier!{
+        case "theScissorrsSegue":
+            let resultVC = segue.destinationViewController as! ResultViewController
+            let theResult = play(.Scissors)
+            resultVC.rPS = theResult
+        case "pickPaperSegue" :
+            let resultVC = segue.destinationViewController as! ResultViewController
+            let theResult = play(.Paper)
+            resultVC.rPS = theResult
+        default :
+            let historyVC = segue.destinationViewController as! HistoryViewController
+            historyVC.arrayRPS = arrayRPS
         }
-        resultVC.result = theResult.0
-        resultVC.nameImage = theResult.1
+        
+        
         
     }
     override func viewDidLoad() {

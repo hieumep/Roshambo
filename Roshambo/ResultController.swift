@@ -9,23 +9,23 @@
 import UIKit
 
 class ResultViewController : UIViewController{
-    var result : String?
-    var nameImage : String?
+    
+    var rPS:RPS?
     
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var resultLabel: UILabel!
     
     override func viewDidLoad() {
-        if let result = self.result{
-            resultLabel.text = result
-        }
-        if let nameImage = self.nameImage{
-            self.imageView.image = UIImage(named : nameImage)
+        if let rPS = self.rPS{
+            resultLabel.text = rPS.resultStr
+            imageView.image = UIImage(named : rPS.imageName)
         }
     }
     
     @IBAction func exit(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+       if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
 }
