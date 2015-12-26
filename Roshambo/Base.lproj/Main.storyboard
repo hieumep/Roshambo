@@ -188,6 +188,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Kty-HV-ixt" id="P9m-vv-1Cd"/>
+                                    <outlet property="delegate" destination="Kty-HV-ixt" id="RgK-E3-qfx"/>
                                 </connections>
                             </tableView>
                         </subviews>

@@ -38,7 +38,7 @@ class HistoryViewController : UIViewController,UITableViewDelegate,UITableViewDa
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("resultViewController") as! ResultViewController
         let rPS = arrayRPS![indexPath.row]
         resultVC.rPS = rPS
-        self.navigationController?.pushViewController(resultVC, animated: true)
+        self.navigationController!.pushViewController(resultVC, animated: true)
     }
     
 }
