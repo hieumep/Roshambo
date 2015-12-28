@@ -80,19 +80,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelResult: UILabel!
     
-    func play(p1:cards) -> RPS{
+    func play(p1:cards){
         let p2 = cards()
         let theMatch = match(p1: p1,p2 : p2)
         let theResult = theMatch.compare()
         arrayRPS.append(theResult)
-        return theResult
     }
     
     @IBAction func pickRock(){
-        let theResult = play(.Rock)
+        play(.Rock)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("resultViewController") as! ResultViewController
-        resultVC.rPS = theResult
+        resultVC.arrayRPS = arrayRPS
+        resultVC.index = arrayRPS.count - 1
         navigationController?.pushViewController(resultVC, animated: true)
     }
     
@@ -105,12 +105,14 @@ class ViewController: UIViewController {
         switch segue.identifier!{
         case "theScissorrsSegue":
             let resultVC = segue.destinationViewController as! ResultViewController
-            let theResult = play(.Scissors)
-            resultVC.rPS = theResult
+            play(.Scissors)
+            resultVC.arrayRPS = arrayRPS
+            resultVC.index = arrayRPS.count - 1
         case "pickPaperSegue" :
             let resultVC = segue.destinationViewController as! ResultViewController
-            let theResult = play(.Paper)
-            resultVC.rPS = theResult
+            play(.Paper)
+            resultVC.arrayRPS = arrayRPS
+            resultVC.index = arrayRPS.count - 1
         default :
             let historyVC = segue.destinationViewController as! HistoryViewController
             historyVC.arrayRPS = arrayRPS

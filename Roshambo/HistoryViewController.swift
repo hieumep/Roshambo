@@ -16,10 +16,16 @@ class HistoryViewController : UIViewController,UITableViewDelegate,UITableViewDa
    
     var arrayRPS:[RPS]?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+        
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayRPS!.count
     
     }
+   
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseHistory")! as UITableViewCell
@@ -36,8 +42,9 @@ class HistoryViewController : UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("resultViewController") as! ResultViewController
-        let rPS = arrayRPS![indexPath.row]
-        resultVC.rPS = rPS
+        //let rPS = arrayRPS![indexPath.row]
+        resultVC.arrayRPS = arrayRPS
+        resultVC.index = indexPath.row
         self.navigationController!.pushViewController(resultVC, animated: true)
     }
     
